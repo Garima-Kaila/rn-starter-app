@@ -24,6 +24,7 @@ var Footer = require('./app/components/layout/Footer');
 
 var MoviesList = require('./app/views/movies/MoviesList');
 
+var GoogleSignIn = require('./app/components/buttons/GoogleSignIn');
 
 
 var styles = StyleSheet.create({
@@ -45,6 +46,8 @@ var styles = StyleSheet.create({
 
 
 export default class StarterApp extends Component {
+
+
     render() {
         return (
             <View style={{flex: 1}}>
@@ -54,7 +57,8 @@ export default class StarterApp extends Component {
                     actions={[{title: 'Settings', show: 'always'}]}
                     onActionSelected={this.onActionSelected}/>
                 <Container>
-                <MoviesList></MoviesList>
+                    <GoogleSignIn></GoogleSignIn>
+                    <MoviesList></MoviesList>
                 </Container>
                 <Footer></Footer>
             </View>
