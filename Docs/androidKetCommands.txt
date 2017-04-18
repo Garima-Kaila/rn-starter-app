@@ -1,0 +1,54 @@
+
+adb devices
+react-native log-android 
+react-native run-android 
+react-native run-android --variant=release  // react-native run-android --configuration=release
+
+cd android && ./gradlew assembleRelease
+
+
+
+
+
+keytool -genkey -v -keystore C:\reactNative\starter-app\androidKey -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
+
+keytool -exportcert -list -v -alias androidKey -keystore C:\reactNative\starter-app\androidKey.keystore 
+
+
+C:\reactNative\starter-app>keytool -exportcert -list -v -alias androidKey -keyst
+ore C:\reactNative\starter-app\androidKey
+Enter keystore password:
+Alias name: androidKey
+Creation date: 2017-apr-17
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=Garima Kaila, OU=CIL, O=Cross Innovation Labs, L=Mexico, ST=Mexico, C=
+MX
+Issuer: CN=Garima Kaila, OU=CIL, O=Cross Innovation Labs, L=Mexico, ST=Mexico, C
+=MX
+Serial number: 28beaca0
+Valid from: Mon Apr 17 17:59:18 CEST 2017 until: Fri Sep 02 17:59:18 CEST 2044
+Certificate fingerprints:
+         MD5:  95:FF:54:4D:11:AC:CA:F0:91:F7:E8:AD:C8:EB:B3:F8
+         SHA1: A7:B9:34:2F:50:A6:49:83:0F:D9:01:1F:D5:23:E2:5E:B0:89:9B:DE
+         SHA256: 97:92:85:21:9D:EA:1D:A8:42:17:6D:85:3E:09:C3:A0:4D:3C:B1:54:DC:
+A7:12:C5:7C:F8:0F:CC:49:83:58:0C
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 73 06 B4 86 C3 BD 3F B5   AF C7 E8 57 F6 37 70 8D  s.....?....W.7p.
+0010: 32 53 99 7A                                        2S.z
+]
+]
+
+
+C:\reactNative\starter-app>
+pwd - cil@1234
+
+
