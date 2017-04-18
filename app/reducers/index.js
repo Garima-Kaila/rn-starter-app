@@ -6,10 +6,12 @@ import {combineReducers} from 'redux';
 
 // Reducers
 import movieReducer from './movie-reducer';
+import loginReducer from './login-reducer';
 
 // Combine Reducers
 var reducers = combineReducers({
-    movies: movieReducer
+    movies: movieReducer,
+    login: loginReducer,
 });
 
 export default reducers;

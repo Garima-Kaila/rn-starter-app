@@ -20,7 +20,7 @@ const footerStyle = {
 };
 const footerTextStyle = {
 
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
 };
 class Footer extends React.Component {
