@@ -1,0 +1,14 @@
+https://www.npmjs.com/package/react-native-google-sign-in
+
+https://developers.google.com/mobile/add
+
+https://developers.google.com/identity/sign-in/android/sign-in?configured=true
+
+https://console.developers.google.com/apis/credentials?project=starterapp-164915
+
+https://developers.google.com/android/guides/client-auth
+
+https://facebook.github.io/react-native/docs/signed-apk-android.html
+https://github.com/devfd/react-native-google-signin/issues/98
+
+https://differential.com/insights/meteor-google-oauth-from-react-native/
