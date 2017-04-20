@@ -35,13 +35,12 @@ class FacebookSignInButton extends React.Component {
                 userDetails: Store.getState().login.userDetails
             });
 
-            alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
+         //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
         });
     }
 
     render() {
         var _this = this;
-        alert(this.state.userDetails.id);
         if (this.state.userDetails.id && this.state.userDetails.id.length > 0) {
             let image = this.state.userDetails.image;
             let name = this.state.userDetails.name + " (" + this.state.userDetails.email + ")";
@@ -69,7 +68,7 @@ class FacebookSignInButton extends React.Component {
                     onLogin={function(user){
                     console.log(user);
                      setTimeout(() => {
-                            let userInfo = {id:user.userId,email:user.profile.email,name:user.profile.name,image:user.profile.picture.data.url}
+                            let userInfo = {id:user.credentials.userId,email:user.profile.email,name:user.profile.name,image:user.profile.picture.data.url}
                             Store.dispatch(loginSuccess(userInfo));
                     },1500);
                  //   alert(JSON.stringify(userInfo, null, '  '));
