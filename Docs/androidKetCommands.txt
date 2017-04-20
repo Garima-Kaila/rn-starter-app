@@ -10,9 +10,15 @@ cd android && ./gradlew assembleRelease
 
 
 
+// for google
 keytool -genkey -v -keystore C:\reactNative\starter-app\androidKey -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 
 keytool -exportcert -list -v -alias androidKey -keystore C:\reactNative\starter-app\androidKey.keystore 
+
+
+
+
+
 
 
 C:\reactNative\starter-app>keytool -exportcert -list -v -alias androidKey -keyst
@@ -48,7 +54,44 @@ KeyIdentifier [
 ]
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for facebook
+keytool -exportcert -alias androidKey -keystore C:\reactNative\starter-app\Docs\androidKey.keystore | openssl sha1 -binary | openssl base64
+
+
+ishaan.puniani@L-5CG44557RS MINGW64 /c/reactNative/starter-app (STARTERAPP-14)
+$ keytool -exportcert -alias androidKey -keystore C:\reactNative\starter-app\Do
+cs\androidKey.keystore | openssl sha1 -binary | openssl base64
+jFbfhExstRjS1E5ClLbGNwupffE=
+
+
+
+
+
+
+
+
+
 C:\reactNative\starter-app>
 pwd - cil@1234
+
+
+
+
+
+
+
 
 

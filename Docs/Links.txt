@@ -12,3 +12,11 @@ https://facebook.github.io/react-native/docs/signed-apk-android.html
 https://github.com/devfd/react-native-google-signin/issues/98
 
 https://differential.com/insights/meteor-google-oauth-from-react-native/
+
+
+
+
+// Facebook Integration
+
+https://github.com/magus/react-native-facebook-login/tree/master/android
+https://github.com/magus/react-native-facebook-login
