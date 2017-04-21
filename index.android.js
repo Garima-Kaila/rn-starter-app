@@ -25,6 +25,7 @@ var Footer = require('./app/components/layout/Footer');
 var MoviesList = require('./app/views/movies/MoviesList');
 
 var GoogleSignInButton = require('./app/components/buttons/GoogleSignInButton');
+var FacebookSignInButton = require('./app/components/buttons/FacebookSignInButton');
 
 
 var styles = StyleSheet.create({
@@ -58,6 +59,7 @@ export default class StarterApp extends Component {
                     onActionSelected={this.onActionSelected}/>
                 <Container>
                     <GoogleSignInButton></GoogleSignInButton>
+                    <FacebookSignInButton></FacebookSignInButton>
                     <MoviesList></MoviesList>
                 </Container>
                 <Footer></Footer>

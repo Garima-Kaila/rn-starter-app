@@ -39,16 +39,16 @@ class GoogleSignInButton extends React.Component {
     render() {
 
         if (this.state.userDetails.id && this.state.userDetails.id.length > 0) {
-            let image =this.state.userDetails.image;
-            let name = this.state.userDetails.name + " (" +this.state.userDetails.email+")";
+            let image = this.state.userDetails.image;
+            let name = this.state.userDetails.name + " (" + this.state.userDetails.email + ")";
             return (<View>
                 <Text>
                     Welcome!!
                 </Text>
-               {/* <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: image}}
-                />*/}
+                {/* <Image
+                 style={{width: 50, height: 50}}
+                 source={{uri: image}}
+                 />*/}
                 <Text>
                     {name}
                 </Text>
@@ -69,7 +69,7 @@ class GoogleSignInButton extends React.Component {
             alert(JSON.stringify(userInfo, null, '  '));
           }, 1500);
         }}>
-                    <Text style={styles.instructions}>
+                    <Text style={styles.loginButton}>
                         Google Sign-In
                     </Text>
                 </TouchableHighlight>
@@ -80,7 +80,7 @@ class GoogleSignInButton extends React.Component {
 
 }
 const styles = StyleSheet.create({
-    instructions: {
+    loginButton: {
         textAlign: 'center',
         marginBottom: 5,
         backgroundColor: 'blue',

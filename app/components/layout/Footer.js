@@ -16,11 +16,11 @@ const footerStyle = {
     borderRadius: 4,
     borderWidth: 0.5,
     borderColor: '#d6d7da',
-    padding:5
+    padding:6
 };
 const footerTextStyle = {
 
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
 };
 class Footer extends React.Component {
