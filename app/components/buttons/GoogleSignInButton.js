@@ -28,12 +28,12 @@ class GoogleSignInButton extends React.Component {
     }
 
     componentDidMount() {
-        Store.subscribe(() => {
+      /*  Store.subscribe(() => {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
             //alert(JSON.stringify(Store.getState().login.userDetails, null, '  '));
-        });
+        });*/
     }
 
     render() {

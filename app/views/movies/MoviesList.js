@@ -16,6 +16,9 @@ import {
 }  from 'react-native';
 
 class MoviesList extends React.Component {
+    static navigationOptions = {
+        title: 'Movies',
+    };
     constructor(props) {
         super(props);
         this.state = {

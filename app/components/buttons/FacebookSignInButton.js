@@ -30,13 +30,13 @@ class FacebookSignInButton extends React.Component {
     }
 
     componentDidMount() {
-        Store.subscribe(() => {
+        /*Store.subscribe(() => {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
 
          //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
-        });
+        });*/
     }
 
     render() {

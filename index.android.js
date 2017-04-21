@@ -11,6 +11,7 @@ import {
     Text,
     TextInput,
     Image,
+    Button,
     Animated,
     ScrollView,
     ToolbarAndroid,
@@ -19,7 +20,7 @@ import {
 
 
 var Container = require('./app/components/layout/Container');
-var Button = require('./app/components/buttons/Button');
+//var Button = require('./app/components/buttons/Button');
 var Footer = require('./app/components/layout/Footer');
 
 var MoviesList = require('./app/views/movies/MoviesList');
@@ -27,6 +28,9 @@ var MoviesList = require('./app/views/movies/MoviesList');
 var GoogleSignInButton = require('./app/components/buttons/GoogleSignInButton');
 var FacebookSignInButton = require('./app/components/buttons/FacebookSignInButton');
 
+//import StarterApp from "./app/App"
+
+import Store from './app/store/Store';
 
 var styles = StyleSheet.create({
     toolbar: {
@@ -47,6 +51,22 @@ var styles = StyleSheet.create({
 
 
 export default class StarterApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userDetails: {}
+        };
+    }
+
+    componentDidMount() {
+        Store.subscribe(() => {
+            this.setState({
+                userDetails: Store.getState().login.userDetails
+            });
+
+            //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
+        });
+    }
 
 
     render() {
@@ -55,7 +75,7 @@ export default class StarterApp extends Component {
                 <ToolbarAndroid
                     title='Starter App'
                     style={styles.toolbar}
-                    actions={[{title: 'Settings', show: 'always'}]}
+                    actions={[{title: (this.state.userDetails.id && this.state.userDetails.id.length > 0)?"Welcome "+this.state.userDetails.name + " (" + this.state.userDetails.email + ")":"", show: 'always'}]}
                     onActionSelected={this.onActionSelected}/>
                 <Container>
                     <GoogleSignInButton></GoogleSignInButton>
@@ -68,4 +88,5 @@ export default class StarterApp extends Component {
     }
 
 }
+
 AppRegistry.registerComponent('StarterApp', () => StarterApp);
