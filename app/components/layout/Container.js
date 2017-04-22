@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import {
     View
-}  from 'react-native';;
+}  from 'react-native';
 
 class Container extends React.Component {
 
