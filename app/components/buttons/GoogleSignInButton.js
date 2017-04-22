@@ -12,6 +12,9 @@ import {
     TouchableHighlight
 } from 'react-native';
 import GoogleSignIn from 'react-native-google-sign-in';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Button from './Button';
+
 import Store from '../../store/Store';
 var {
     loginSuccess
@@ -28,12 +31,12 @@ class GoogleSignInButton extends React.Component {
     }
 
     componentDidMount() {
-      /*  Store.subscribe(() => {
+        Store.subscribe(() => {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
             //alert(JSON.stringify(Store.getState().login.userDetails, null, '  '));
-        });*/
+        });
     }
 
     render() {
@@ -43,7 +46,7 @@ class GoogleSignInButton extends React.Component {
             let name = this.state.userDetails.name + " (" + this.state.userDetails.email + ")";
             return (<View>
                 <Text>
-                    Welcome!!
+                   Already logged in as
                 </Text>
                 {/* <Image
                  style={{width: 50, height: 50}}
@@ -55,7 +58,7 @@ class GoogleSignInButton extends React.Component {
             </View>)
         } else {
             return (<View>
-                <TouchableHighlight onPress={async () => {
+{/*                <TouchableHighlight onPress={async () => {
           await GoogleSignIn.configure({
             clientID: CLIENT_ID,
             scopes: ['openid', 'email', 'profile'],
@@ -69,26 +72,61 @@ class GoogleSignInButton extends React.Component {
             alert(JSON.stringify(userInfo, null, '  '));
           }, 1500);
         }}>
-                    <Text style={styles.loginButton}>
-                        Google Sign-In
-                    </Text>
-                </TouchableHighlight>
+
+                    <View style={styles.inline}>
+                        <Icon name="google-plus" size={30} color="#3B5699"/>
+                        <Text style={styles.loginButton}>Google Sign-In </Text>
+                    </View>
+
+                </TouchableHighlight>*/}
+                <Button
+                    styles={{button: styles.transparentButton}}
+                    onPress={this._press.bind(this)}
+                >
+                    <View style={styles.inline}>
+                        <Icon name="google-plus" size={30} color="#3B5699"/>
+                        <Text style={[styles.buttonBlueText, styles.buttonBigText]}> Connect </Text>
+                        <Text style={styles.buttonBlueText}>with Google+</Text>
+                    </View>
+                </Button>
             </View>)
         }
 
     }
 
+    _press = async() => {
+        await GoogleSignIn.configure({
+            clientID: CLIENT_ID,
+            scopes: ['openid', 'email', 'profile'],
+            shouldFetchBasicProfile: true,
+        });
+
+        const user = await GoogleSignIn.signInPromise();
+        setTimeout(() => {
+            let userInfo = {id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
+            Store.dispatch(loginSuccess(userInfo));
+            alert(JSON.stringify(userInfo, null, '  '));
+        }, 1500);
+    }
+
 }
 const styles = StyleSheet.create({
-    loginButton: {
-        textAlign: 'center',
-        marginBottom: 5,
-        backgroundColor: 'blue',
-        color: 'white',
-        padding: 10,
-        fontWeight: 'bold',
-        fontSize: 30,
+    transparentButton: {
+        marginTop: 30,
+        borderColor: '#3B5699',
+        borderWidth: 2
     },
+    buttonBlueText: {
+        fontSize: 20,
+        color: '#3B5699'
+    },
+    buttonBigText: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    inline: {
+        flexDirection: 'row'
+    }
 });
 
 module.exports = GoogleSignInButton;

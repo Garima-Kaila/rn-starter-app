@@ -14,6 +14,7 @@ import React, {Component} from 'react';
 import {
     View,
 }  from 'react-native';
+var Footer = require('../../components/layout/Footer');
 
 class MoviesList extends React.Component {
     static navigationOptions = {

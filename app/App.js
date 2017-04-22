@@ -42,9 +42,9 @@ const LoginNavigator = TabNavigator({
 });
 
 const App = StackNavigator({
-    Splash: {screen: SplashScreen},
-    Movies: {screen: MoviesList},
-    LoginNavigator: {screen: LoginNavigator}
+    //Splash: {screen: SplashScreen},
+    LoginNavigator: {screen: LoginNavigator},
+    Movies: {screen: MoviesList}
 });
 
 const StarterApp = DrawerNavigator({

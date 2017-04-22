@@ -19,7 +19,8 @@ import Store from '../../store/Store';
 var {
     loginSuccess
 } = require('../../actions/login-actions');
-
+import Button from './Button';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class FacebookSignInButton extends React.Component {
     constructor(props) {
@@ -30,13 +31,13 @@ class FacebookSignInButton extends React.Component {
     }
 
     componentDidMount() {
-        /*Store.subscribe(() => {
+        Store.subscribe(() => {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
 
-         //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
-        });*/
+            //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
+        });
     }
 
     render() {
@@ -57,11 +58,18 @@ class FacebookSignInButton extends React.Component {
                 </Text>
             </View>);
         } else {
+            let button = (
+                <View style={styles.inline}>
+                    <Icon name="facebook-official" size={30} color="#3B5699"/>
+                    <Text style={[styles.buttonBlueText, styles.buttonBigText]}> Connect </Text>
+                    <Text style={styles.buttonBlueText}>with Facebook</Text>
+                </View>
+            )
             return (
                 <FBLogin
-                    buttonView={ <View>
-                                <Text style={styles.loginButton}>Facebook</Text>
-                             </View> }
+                    buttonView={button }
+                    onClickColor="#ccc"
+                    containerStyle={styles.transparentButton}
                     ref={(fbLogin) => { this.fbLogin = fbLogin }}
                     loginBehavior={FBLoginManager.LoginBehaviors.Native}
                     permissions={["email","user_friends"]}
@@ -86,15 +94,25 @@ class FacebookSignInButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    loginButton: {
-        textAlign: 'center',
-        marginBottom: 5,
-        backgroundColor: 'blue',
-        color: 'white',
-        padding: 10,
-        fontWeight: 'bold',
-        fontSize: 30,
+    transparentButton: {
+        marginTop: 10,
+        borderColor: '#3B5699',
+        borderWidth: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 5
     },
+    buttonBlueText: {
+        fontSize: 20,
+        color: '#3B5699'
+    },
+    buttonBigText: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    inline: {
+        flexDirection: 'row'
+    }
 });
 
 module.exports = FacebookSignInButton;

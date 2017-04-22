@@ -26,7 +26,7 @@ class SplashScreen extends React.Component {
                 NavigationActions.navigate({ routeName: 'LoginNavigator'})
             ]
         });
-        setTimeout(() => {this.props.navigation.dispatch(resetAction);}, 1000)
+        setTimeout(() => {this.props.navigation.dispatch(resetAction);}, 10);
         return (
             <View>
                 <Text>Hello, Chat App!</Text>

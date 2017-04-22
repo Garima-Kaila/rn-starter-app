@@ -16,7 +16,8 @@ const footerStyle = {
     borderRadius: 4,
     borderWidth: 0.5,
     borderColor: '#d6d7da',
-    padding:6
+    backgroundColor: '#fff',
+    padding: 6
 };
 const footerTextStyle = {
 
