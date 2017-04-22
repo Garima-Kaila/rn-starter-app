@@ -13,6 +13,17 @@ import {
     NavigationActions
 } from 'react-navigation';
 
+var SignupForm = require('../../components/users/SignupForm');
+
+var GoogleSignInButton = require('../../components/buttons/GoogleSignInButton');
+var FacebookSignInButton = require('../../components/buttons/FacebookSignInButton');
+
+var Container = require('../../components/layout/Container');
+
+
+var Footer = require('../../components/layout/Footer');
+var FormControl = require('../../components/layout/FormControl');
+
 class SignUpScreen extends React.Component {
     static navigationOptions = {
         title: 'User Sign Up',
@@ -28,6 +39,29 @@ class SignUpScreen extends React.Component {
     };
 
     render() {
+        return (
+            <View style={{flex: 1}}>
+                <Container>
+                    <FormControl>
+                        <Button
+                            onPress={() => this.props.navigation.navigate('Login')}
+                            title="Already have account"
+                        />
+                    </FormControl>
+                    <SignupForm></SignupForm>
+                    {/*<FormControl>
+                        <Button
+                            onPress={() => this.props.navigation.navigate('SignUp')}
+                            title="Sign Up!"
+                        />
+                    </FormControl>*/}
+                </Container>
+                <Footer></Footer>
+            </View>
+        );
+    }
+
+/*    render() {
         return (
             <View>
 
@@ -47,7 +81,7 @@ class SignUpScreen extends React.Component {
 
 
         );
-    }
+    }*/
 }
 
 const styles = StyleSheet.create({
