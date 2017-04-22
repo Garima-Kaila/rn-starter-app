@@ -2,20 +2,24 @@
  * Created by garima.kaila on 2017-04-21.
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
-    StyleSheet
+    StyleSheet,
+    Button
 }  from 'react-native';
 
 import {
     StackNavigator,
-    TabNavigator
+    TabNavigator,
+    DrawerNavigator
 } from 'react-navigation';
 
 import MoviesList from "./views/movies/MoviesList";
 import SplashScreen from "./views/splash/Splash";
 import LoginScreen from "./views/users/Login";
 import SignUpScreen from "./views/users/SignUp";
+import AboutScreen from "./views/about/About";
+
 
 const styles = StyleSheet.create({
     icon: {
@@ -37,11 +41,17 @@ const LoginNavigator = TabNavigator({
     },
 });
 
-
-StarterApp = StackNavigator({
+const App = StackNavigator({
     Splash: {screen: SplashScreen},
     Movies: {screen: MoviesList},
     LoginNavigator: {screen: LoginNavigator}
 });
+
+const StarterApp = DrawerNavigator({
+    Home: {screen: App},
+    About: {screen: AboutScreen}
+})
+
+
 module.exports = StarterApp;
 

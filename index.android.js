@@ -18,7 +18,11 @@ import {
     View
 } from 'react-native';
 
-
+import {
+    StackNavigator,
+    TabNavigator,
+    DrawerNavigator
+} from 'react-navigation';
 var Container = require('./app/components/layout/Container');
 //var Button = require('./app/components/buttons/Button');
 var Footer = require('./app/components/layout/Footer');
@@ -28,9 +32,12 @@ var MoviesList = require('./app/views/movies/MoviesList');
 var GoogleSignInButton = require('./app/components/buttons/GoogleSignInButton');
 var FacebookSignInButton = require('./app/components/buttons/FacebookSignInButton');
 
-//import StarterApp from "./app/App"
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import StarterApp from "./app/App"
 
 import Store from './app/store/Store';
+/*
 
 var styles = StyleSheet.create({
     toolbar: {
@@ -88,5 +95,61 @@ export default class StarterApp extends Component {
     }
 
 }
+*/
+
+/*
+
+class MyHomeScreen extends React.Component {
+    static navigationOptions = {
+        drawerLabel: 'Home',
+    };
+
+    render() {
+        return (
+            <Button
+                onPress={() => this.props.navigation.navigate('Notifications')}
+                title="Go to notifications"
+            />
+        );
+    }
+}
+
+class MyNotificationsScreen extends React.Component {
+    static navigationOptions = {
+        drawerLabel: 'Notifications',
+        drawerIcon: ({ tintColor }) => (
+        <Icon name="rocket" size={30} color="#900" />/!* <Image
+                source={require('./app/notif-icon.png')}
+                style={[styles.tabIcon, {tintColor: tintColor}]}
+            />*!/
+        ),
+    };
+
+    render() {
+        return (
+            <Button
+                onPress={() => this.props.navigation.goBack()}
+                title="Go back home"
+            />
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    icon: {
+        width: 24,
+        height: 24,
+    },
+});
+
+const StarterApp = DrawerNavigator({
+    Home: {
+        screen: MyHomeScreen,
+    },
+    Notifications: {
+        screen: MyNotificationsScreen,
+    },
+});
+*/
 
 AppRegistry.registerComponent('StarterApp', () => StarterApp);
