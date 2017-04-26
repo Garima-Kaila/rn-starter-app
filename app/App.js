@@ -2,11 +2,6 @@
  * Created by garima.kaila on 2017-04-21.
  */
 
-import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Button
-}  from 'react-native';
 
 import {
     StackNavigator,
@@ -21,13 +16,6 @@ import SignUpScreen from "./views/users/SignUp";
 import AboutScreen from "./views/about/About";
 
 
-const styles = StyleSheet.create({
-    icon: {
-        width: 26,
-        height: 26,
-    },
-});
-
 const LoginNavigator = TabNavigator({
     Login: {
         screen: LoginScreen,
@@ -38,7 +26,7 @@ const LoginNavigator = TabNavigator({
 }, {
     tabBarOptions: {
         activeTintColor: '#e91e63',
-    },
+    }
 });
 
 const App = StackNavigator({

@@ -5,11 +5,9 @@
 
 import React, {Component} from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
-    View,
-    TouchableHighlight
+    View
 } from 'react-native';
 import GoogleSignIn from 'react-native-google-sign-in';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -35,7 +33,6 @@ class GoogleSignInButton extends React.Component {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
-            //alert(JSON.stringify(Store.getState().login.userDetails, null, '  '));
         });
     }
 
@@ -58,27 +55,6 @@ class GoogleSignInButton extends React.Component {
             </View>)
         } else {
             return (<View>
-{/*                <TouchableHighlight onPress={async () => {
-          await GoogleSignIn.configure({
-            clientID: CLIENT_ID,
-            scopes: ['openid', 'email', 'profile'],
-            shouldFetchBasicProfile: true,
-          });
-
-          const user = await GoogleSignIn.signInPromise();
-          setTimeout(() => {
-              let userInfo = {id:user.userID,email:user.email,name:user.name,image:user.photoUrlTiny}
-               Store.dispatch(loginSuccess(userInfo));
-            alert(JSON.stringify(userInfo, null, '  '));
-          }, 1500);
-        }}>
-
-                    <View style={styles.inline}>
-                        <Icon name="google-plus" size={30} color="#3B5699"/>
-                        <Text style={styles.loginButton}>Google Sign-In </Text>
-                    </View>
-
-                </TouchableHighlight>*/}
                 <Button
                     styles={{button: styles.transparentButton}}
                     onPress={this._press.bind(this)}
@@ -105,7 +81,6 @@ class GoogleSignInButton extends React.Component {
         setTimeout(() => {
             let userInfo = {provider:"google",id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
             Store.dispatch(loginSuccess(userInfo));
-            alert(JSON.stringify(userInfo, null, '  '));
         }, 1500);
     }
 }

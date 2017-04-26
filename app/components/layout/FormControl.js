@@ -2,7 +2,6 @@
  * Created by garima.kaila on 2017-04-14.
  */
 
-//var React = require('react-native');
 import React, { Component } from 'react';
 import {
     View,

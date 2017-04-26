@@ -89,7 +89,6 @@ class LoginForm extends React.Component {
         if (!this._validateUsernameField() && !this._validatePasswordField()) {
             Store.dispatch(authenticate(username, password));
         }
-        // do some stuff here…
     };
     _validatePasswordField = () => {
         let isInValid = this.state.password.trim().length < 1;
