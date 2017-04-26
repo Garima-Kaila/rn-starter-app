@@ -34,6 +34,7 @@ class SignupForm extends React.Component {
     render() {
         let strLblUsername = "Username or Email";
         let strLblPassword = "Password";
+        let strLblConfirmPassword = "Confirm Password";
         return (<View>
             <FormControl>
                 <Text>{strLblUsername}</Text>
@@ -59,13 +60,24 @@ class SignupForm extends React.Component {
                 />
             </FormControl>
             <FormControl>
+                <Text>{strLblConfirmPassword}</Text>
+                <TextInput
+                    secureTextEntry={true}
+                    ref="password"
+                    value={this.state.password}
+                    onChangeText={password => this.setState({password})}
+                    onSubmitEditing={this._submitForm}
+                    style={styles.textInput}
+                />
+            </FormControl>
+            <FormControl>
                 <Button
-                    label="Sign In"
+                    label="Sign Up"
                     styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
-                    onPress={this._submitForm.bind(this)} >
+                    onPress={this._submitForm.bind(this)}>
                     <View style={styles.inline}>
                         <Icon name="user" size={30} color="#fff"/>
-                        <Text style={styles.buttonWhiteText}>   Create Account </Text>
+                        <Text style={styles.buttonWhiteText}> Create Account </Text>
                     </View>
                 </Button>
 

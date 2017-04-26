@@ -15,6 +15,11 @@ import {
 var FormControl = require('../../components/layout/FormControl');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Button from "../buttons/Button";
+import Store from '../../store/Store';
+var {
+    authenticate
+} = require('../../actions/login-actions');
+
 
 class LoginForm extends React.Component {
 
@@ -22,7 +27,10 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            usernameIsInvalid: false,
+            passwordIsInvalid: false,
+
 
         }
     }
@@ -36,7 +44,7 @@ class LoginForm extends React.Component {
         let strLblPassword = "Password";
         return (<View>
             <FormControl>
-                <Text>{strLblUsername}</Text>
+                <Text style={[{color: this.state.usernameIsInvalid?"red":"black"}]}>{strLblUsername}</Text>
                 <TextInput
                     autoFocus={true}
                     value={this.state.username}
@@ -48,7 +56,7 @@ class LoginForm extends React.Component {
                 />
             </FormControl>
             <FormControl>
-                <Text>{strLblPassword}</Text>
+                <Text style={[{color: this.state.passwordIsInvalid?"red":"black"}]}>{strLblPassword}</Text>
                 <TextInput
                     secureTextEntry={true}
                     ref="password"
@@ -62,10 +70,10 @@ class LoginForm extends React.Component {
                 <Button
                     label="Sign In"
                     styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
-                    onPress={this._submitForm.bind(this)} >
+                    onPress={this._submitForm.bind(this)}>
                     <View style={styles.inline}>
                         <Icon name="sign-in" size={30} color="#fff"/>
-                        <Text style={styles.buttonWhiteText}>   Login </Text>
+                        <Text style={styles.buttonWhiteText}> Login </Text>
                     </View>
                 </Button>
 
@@ -76,9 +84,31 @@ class LoginForm extends React.Component {
     }
 
     _submitForm = () => {
-        const {username, password} = this.state
-        alert(username + " , " + password);
+        const {username, password} = this.state;
+
+        if (!this._validateUsernameField() && !this._validatePasswordField()) {
+            Store.dispatch(authenticate(username, password));
+        }
         // do some stuff here…
+    };
+    _validatePasswordField = () => {
+        let isInValid = this.state.password.trim().length < 1;
+        this.setState({passwordIsInvalid: isInValid});
+        return isInValid;
+    };
+    _validateUsernameField = () => {
+        if (!this._validateEmail(this.state.username)) {
+            // not a valid email
+            this.setState({usernameIsInvalid: true});
+            return true;
+        } else {
+            this.setState({usernameIsInvalid: false});
+            return false;
+        }
+    };
+    _validateEmail = (email) => {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     };
 
 }

@@ -24,7 +24,7 @@ var reducers = {
     },
 
     fetchMovies: function (key) {
-        return dispatch =>
+        return (dispatch) =>
             fetch('http://www.omdbapi.com/?s=' + key)
                 .then(response => {
                     response.json().then(function (data) {

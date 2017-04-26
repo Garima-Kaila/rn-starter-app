@@ -76,7 +76,7 @@ class FacebookSignInButton extends React.Component {
                     onLogin={function(user){
                     console.log(user);
                      setTimeout(() => {
-                            let userInfo = {id:user.credentials.userId,email:user.profile.email,name:user.profile.name,image:user.profile.picture.data.url}
+                            let userInfo = {provider:"facebook",id:user.credentials.userId,email:user.profile.email,name:user.profile.name,image:user.profile.picture.data.url}
                             Store.dispatch(loginSuccess(userInfo));
                     },1500);
                  //   alert(JSON.stringify(userInfo, null, '  '));
