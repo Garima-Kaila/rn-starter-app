@@ -20,3 +20,25 @@ https://differential.com/insights/meteor-google-oauth-from-react-native/
 
 https://github.com/magus/react-native-facebook-login/tree/master/android
 https://github.com/magus/react-native-facebook-login
+
+// form 
+
+https://code.tutsplus.com/tutorials/common-react-native-app-layouts-login-page--cms-27639
+
+
+// Navigation
+https://github.com/aksonov/react-native-router-flux/issues/1101
+https://reactnavigation.org/docs/navigators/drawer
+http://stackoverflow.com/questions/38395009/navigation-drawer-in-react-native
+https://facebook.github.io/react-native/docs/drawerlayoutandroid.html
+https://github.com/react-community/react-navigation/issues/31
+
+
+http://stackoverflow.com/questions/43135715/reactnative-stacknavigator-inside-drawernavigator
+http://stackoverflow.com/questions/43135715/reactnative-stacknavigator-inside-drawernavigator
+https://gist.github.com/mmazzarolo/d4f2c9855ec723ec228f8958e43b13f6
+https://github.com/react-community/react-navigation/issues/165
+https://github.com/react-community/react-navigation/issues/131
+http://stackoverflow.com/questions/35548371/react-native-toggle-drawer-navigation-bar-visibility-in-routes
+https://github.com/react-community/react-navigation/issues/190
+

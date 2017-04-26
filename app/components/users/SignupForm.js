@@ -15,22 +15,14 @@ import {
 var FormControl = require('../../components/layout/FormControl');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Button from "../buttons/Button";
-import Store from '../../store/Store';
-var {
-    authenticate
-} = require('../../actions/login-actions');
 
-
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             username: "",
-            password: "",
-            usernameIsInvalid: false,
-            passwordIsInvalid: false,
-
+            password: ""
 
         }
     }
@@ -42,9 +34,10 @@ class LoginForm extends React.Component {
     render() {
         let strLblUsername = "Username or Email";
         let strLblPassword = "Password";
+        let strLblConfirmPassword = "Confirm Password";
         return (<View>
             <FormControl>
-                <Text style={[{color: this.state.usernameIsInvalid?"red":"black"}]}>{strLblUsername}</Text>
+                <Text>{strLblUsername}</Text>
                 <TextInput
                     autoFocus={true}
                     value={this.state.username}
@@ -56,7 +49,18 @@ class LoginForm extends React.Component {
                 />
             </FormControl>
             <FormControl>
-                <Text style={[{color: this.state.passwordIsInvalid?"red":"black"}]}>{strLblPassword}</Text>
+                <Text>{strLblPassword}</Text>
+                <TextInput
+                    secureTextEntry={true}
+                    ref="password"
+                    value={this.state.password}
+                    onChangeText={password => this.setState({password})}
+                    onSubmitEditing={this._submitForm}
+                    style={styles.textInput}
+                />
+            </FormControl>
+            <FormControl>
+                <Text>{strLblConfirmPassword}</Text>
                 <TextInput
                     secureTextEntry={true}
                     ref="password"
@@ -68,12 +72,12 @@ class LoginForm extends React.Component {
             </FormControl>
             <FormControl>
                 <Button
-                    label="Sign In"
+                    label="Sign Up"
                     styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
                     onPress={this._submitForm.bind(this)}>
                     <View style={styles.inline}>
-                        <Icon name="sign-in" size={30} color="#fff"/>
-                        <Text style={styles.buttonWhiteText}> Login </Text>
+                        <Icon name="user" size={30} color="#fff"/>
+                        <Text style={styles.buttonWhiteText}> Create Account </Text>
                     </View>
                 </Button>
 
@@ -84,31 +88,9 @@ class LoginForm extends React.Component {
     }
 
     _submitForm = () => {
-        const {username, password} = this.state;
-
-        if (!this._validateUsernameField() && !this._validatePasswordField()) {
-            Store.dispatch(authenticate(username, password));
-        }
+        const {username, password} = this.state
+        alert(username + " , " + password);
         // do some stuff here…
-    };
-    _validatePasswordField = () => {
-        let isInValid = this.state.password.trim().length < 1;
-        this.setState({passwordIsInvalid: isInValid});
-        return isInValid;
-    };
-    _validateUsernameField = () => {
-        if (!this._validateEmail(this.state.username)) {
-            // not a valid email
-            this.setState({usernameIsInvalid: true});
-            return true;
-        } else {
-            this.setState({usernameIsInvalid: false});
-            return false;
-        }
-    };
-    _validateEmail = (email) => {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
     };
 
 }
@@ -125,4 +107,4 @@ const styles = StyleSheet.create({
     }
 });
 
-module.exports = LoginForm;
+module.exports = SignupForm;

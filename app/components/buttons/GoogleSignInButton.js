@@ -103,12 +103,11 @@ class GoogleSignInButton extends React.Component {
 
         const user = await GoogleSignIn.signInPromise();
         setTimeout(() => {
-            let userInfo = {id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
+            let userInfo = {provider:"google",id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
             Store.dispatch(loginSuccess(userInfo));
             alert(JSON.stringify(userInfo, null, '  '));
         }, 1500);
     }
-
 }
 const styles = StyleSheet.create({
     transparentButton: {

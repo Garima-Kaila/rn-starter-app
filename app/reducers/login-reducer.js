@@ -3,16 +3,16 @@
  */
 
 var {
-    LOGIN
+    LOGIN,
+    AUTHENTICATE
 } = require('../actions/types');
-
-
 const initialState = {
     userDetails: {
         id: "",
         email: "",
         name: "",
-        image: ""
+        image: "",
+        provider: ""
     }
 
 };
@@ -25,8 +25,9 @@ const loginReducer = function (state = initialState, action) {
             return Object.assign({}, state, {
                 userDetails: action.userDetails
             });
-
+            break;
         }
+
     }
     return state;
 }
