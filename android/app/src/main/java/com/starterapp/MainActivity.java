@@ -1,6 +1,13 @@
 package com.starterapp;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
+import com.magus.fblogin.FacebookLoginPackage;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
+import com.eguma.barcodescanner.BarcodeScannerPackage;
+import com.eguma.barcodescanner.BarcodeScanner;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
 
 public class MainActivity extends ReactActivity {
 

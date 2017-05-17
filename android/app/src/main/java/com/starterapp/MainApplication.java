@@ -4,6 +4,11 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
+import com.magus.fblogin.FacebookLoginPackage;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
+import com.eguma.barcodescanner.BarcodeScannerPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.magus.fblogin.FacebookLoginPackage;
 import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.facebook.react.ReactNativeHost;
@@ -28,7 +33,9 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new VectorIconsPackage(),
             new RNGoogleSignInPackage(),
-            new FacebookLoginPackage()
+            new FacebookLoginPackage(),
+            new RCTCameraPackage(),
+            new BarcodeScannerPackage()
       );
     }
   };
